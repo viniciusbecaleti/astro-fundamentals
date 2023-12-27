@@ -1,5 +1,31 @@
 ---
+import "../styles/global.css";
 
+const tituloPagina = "Sobre Mim";
+
+const identidade = {
+  nome: "Sarah",
+  pais: "Canadá",
+  ocupacao: "Escritora Técnica",
+  hobbies: ["fotografia", "observar pássaros", "beisebol"],
+};
+
+const habilidades = [
+  "HTML",
+  "CSS",
+  "JavaScript",
+  "React",
+  "Astro",
+  "Escrever Documentação",
+];
+
+const feliz = true;
+const terminado = false;
+const meta = 3;
+
+const corHabilidade = "navy";
+const espessuraFonte = "bold";
+const capitalizacaoTexto = "uppercase";
 ---
 
 <html lang="pt-br">
@@ -8,7 +34,19 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>Astro</title>
+    <title>{tituloPagina}</title>
+    <style define:vars={{ corHabilidade, espessuraFonte, capitalizacaoTexto }}>
+      h1 {
+        color: purple;
+        font-size: 4rem;
+      }
+
+      .habilidade {
+        color: var(--corHabilidade);
+        font-weight: var(--espessuraFonte);
+        text-transform: var(--capitalizacaoTexto);
+      }
+    </style>
   </head>
   <body>
     <a href="/">Início</a>
@@ -16,7 +54,7 @@
     <a href="/blog">Blog</a>
 
     <h1>Meu Site Astro</h1>
-    <h1>Sobre Mim</h1>
+    <h1>{tituloPagina}</h1>
     <h2>... e meu novo site Astro!</h2>
 
     <p>
@@ -28,5 +66,43 @@
       Este site será atualizado enquanto eu completo mais desse tutorial, então
       continue verificando e veja como minha jornada está indo!
     </p>
+
+    <p>Aqui estão alguns fatos sobre mim:</p>
+    <ul>
+      <li>Meu nome é {identidade.nome}.</li>
+      <li>
+        Eu moro no {identidade.pais} e eu trabalho como uma {
+          identidade.ocupacao
+        }.
+      </li>
+      {
+        identidade.hobbies.length >= 2 && (
+          <li>
+            Dois dos meus hobbies são: {identidade.hobbies[0]} and{" "}
+            {identidade.hobbies[1]}
+          </li>
+        )
+      }
+    </ul>
+    <p>Minhas habilidades são:</p>
+    <ul>
+      {
+        habilidades.map((habilidade) => (
+          <li class="habilidade">{habilidade}</li>
+        ))
+      }
+    </ul>
+
+    {feliz && <p>Estou feliz em estar aprendendo Astro!</p>}
+
+    {terminado && <p>Eu terminei esse tutorial!</p>}
+
+    {
+      meta === 3 ? (
+        <p>Minha meta é terminar em 3 dias.</p>
+      ) : (
+        <p>Minha meta não é em 3 dias.</p>
+      )
+    }
   </body>
 </html>
