@@ -1,4 +1,9 @@
 ---
+import "../styles/global.css";
+
+import Cabecalho from "../components/Cabecalho.astro";
+import Rodape from "../components/Rodape.astro";
+
 const tituloPagina = "Meu Blog de Aprendizado sobre Astro";
 ---
 
@@ -11,9 +16,7 @@ const tituloPagina = "Meu Blog de Aprendizado sobre Astro";
     <title>{tituloPagina}</title>
   </head>
   <body>
-    <a href="/">Início</a>
-    <a href="/sobre">Sobre</a>
-    <a href="/blog">Blog</a>
+    <Cabecalho />
 
     <h1>{tituloPagina}</h1>
     <p>Aqui é onde postarei sobre minha jornada aprendendo Astro.</p>
@@ -22,5 +25,11 @@ const tituloPagina = "Meu Blog de Aprendizado sobre Astro";
       <li><a href="/postagens/post-2/">Postagem 2</a></li>
       <li><a href="/postagens/post-3/">Postagem 3</a></li>
     </ul>
+
+    <Rodape />
+
+    <script>
+      import "../scripts/menu.js";
+    </script>
   </body>
 </html>

@@ -1,6 +1,9 @@
 ---
 import "../styles/global.css";
 
+import Cabecalho from "../components/Cabecalho.astro";
+import Rodape from "../components/Rodape.astro";
+
 const tituloPagina = "Sobre Mim";
 
 const identidade = {
@@ -49,9 +52,7 @@ const capitalizacaoTexto = "uppercase";
     </style>
   </head>
   <body>
-    <a href="/">Início</a>
-    <a href="/sobre">Sobre</a>
-    <a href="/blog">Blog</a>
+    <Cabecalho />
 
     <h1>Meu Site Astro</h1>
     <h1>{tituloPagina}</h1>
@@ -104,5 +105,11 @@ const capitalizacaoTexto = "uppercase";
         <p>Minha meta não é em 3 dias.</p>
       )
     }
+
+    <Rodape />
+
+    <script>
+      import "../scripts/menu.js";
+    </script>
   </body>
 </html>

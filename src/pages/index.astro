@@ -1,4 +1,9 @@
 ---
+import "../styles/global.css";
+
+import Cabecalho from "../components/Cabecalho.astro";
+import Rodape from "../components/Rodape.astro";
+
 const tituloPagina = "Página Inicial";
 ---
 
@@ -11,10 +16,14 @@ const tituloPagina = "Página Inicial";
     <title>{tituloPagina}</title>
   </head>
   <body>
-    <a href="/">Início</a>
-    <a href="/sobre">Sobre</a>
-    <a href="/blog">Blog</a>
+    <Cabecalho />
 
     <h1>{tituloPagina}</h1>
+
+    <Rodape />
+
+    <script>
+      import "../scripts/menu.js";
+    </script>
   </body>
 </html>
